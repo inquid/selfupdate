@@ -5,7 +5,6 @@ namespace yii2tech\tests\unit\selfupdate;
 use Yii;
 use yii\helpers\FileHelper;
 use yii2tech\selfupdate\Git;
-use yii2tech\selfupdate\Mercurial;
 use yii2tech\selfupdate\SelfUpdateController;
 
 class SelfUpdateControllerTest extends TestCase
@@ -143,13 +142,6 @@ class SelfUpdateControllerTest extends TestCase
 
         $vcs = $this->invoke($controller, 'detectVersionControlSystem', [$testPath]);
         $this->assertTrue($vcs instanceof Git);
-
-        FileHelper::removeDirectory($vcsDir);
-        $vcsDir = $testPath . DIRECTORY_SEPARATOR . '.hg';
-        FileHelper::createDirectory($vcsDir);
-
-        $vcs = $this->invoke($controller, 'detectVersionControlSystem', [$testPath]);
-        $this->assertTrue($vcs instanceof Mercurial);
     }
 
     public function testClearTmpDirectories()
