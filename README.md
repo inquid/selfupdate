@@ -1,8 +1,8 @@
 <p align="center">
     <a href="https://github.com/yii2tech" target="_blank">
-        <img src="https://avatars2.githubusercontent.com/u/12951949" height="100px">
+        <img src="https://inquid.co/img/logo.png" height="100px">
     </a>
-    <h1 align="center">Project Self Update Extension for Yii 2</h1>
+    <h1 align="center">Yii tools for CI / CD</h1>
     <br>
 </p>
 
@@ -15,18 +15,9 @@ as [GIT](https://git-scm.com/). Such update includes following steps:
  - clear application cache and temporary directories
  - perform additional actions, like applying database migrations
  - link web server web directories to the project web directories, once update is complete
- - notify developer(s) about update result via email
-
-> Note: this solution is very basic and may not suite for the complex project update workflow. You may consider
-  usage of more sophisticated tools like [Phing](https://www.phing.info/). However, this extension may be used as a part
-  of such solution.
+ - notify developer(s) about update result via email, SMS, calls, Telegram and Slack
 
 For license information check the [LICENSE](LICENSE.md)-file.
-
-[![Latest Stable Version](https://poser.pugx.org/yii2tech/selfupdate/v/stable.png)](https://packagist.org/packages/yii2tech/selfupdate)
-[![Total Downloads](https://poser.pugx.org/yii2tech/selfupdate/downloads.png)](https://packagist.org/packages/yii2tech/selfupdate)
-[![Build Status](https://travis-ci.org/yii2tech/selfupdate.svg?branch=master)](https://travis-ci.org/yii2tech/selfupdate)
-
 
 Requirements
 ------------
@@ -42,13 +33,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist yii2tech/selfupdate
+php composer.phar require --prefer-dist inquid/yii-cd-ci
 ```
 
 or add
 
 ```json
-"yii2tech/selfupdate": "*"
+"inquid/yii-cd-ci": "*"
 ```
 
 to the require section of your composer.json.
@@ -57,7 +48,7 @@ to the require section of your composer.json.
 Usage
 -----
 
-This extension provides special console controller [[yii2tech\selfupdate\SelfUpdateController]], which allows automatic updating of
+This extension provides special console controller [[inquid\yii-cd-ci\SelfUpdateController]], which allows automatic updating of
 the project, if its source code is maintained via version control system.
 In order to enable this controller in your project, you should add it to your console application `controllerMap` at
 configuration file:
@@ -65,7 +56,7 @@ configuration file:
 ```php
 return [
     'controllerMap' => [
-        'self-update' => 'yii2tech\selfupdate\SelfUpdateController'
+        'self-update' => 'inquid\yii-cd-ci\SelfUpdateController'
     ],
     // ...
 ];
@@ -152,7 +143,7 @@ return [
 ];
 ```
 
-Please refer to [[\yii2tech\selfupdate\SelfUpdateController]] for particular option information.
+Please refer to [[\inquid\yii-cd-ci\SelfUpdateController]] for particular option information.
 
 Once you have made all necessary adjustments at configuration file, you can run 'self-update/perform' command with it:
 
@@ -160,13 +151,13 @@ Once you have made all necessary adjustments at configuration file, you can run 
 yii self-update @app/config/self-update.php
 ```
 
-You may setup default configuration file name inside the `controllerMap` specification via [[yii2tech\selfupdate\SelfUpdateController::$configFile]]:
+You may setup default configuration file name inside the `controllerMap` specification via [[inquid\yii-cd-ci\SelfUpdateController::$configFile]]:
 
 ```php
 return [
     'controllerMap' => [
         'self-update' => [
-            'class' => 'yii2tech\selfupdate\SelfUpdateController',
+            'class' => 'inquid\yii-cd-ci\SelfUpdateController',
             'configFile' => '@app/config/self-update.php',
         ]
     ],
@@ -181,13 +172,13 @@ yii self-update
 ```
 
 > Note: it is not necessary to create a separated configuration file: you can configure all necessary fields of
-  [[yii2tech\selfupdate\SelfUpdateController]] inside `controllerMap` specification, but such approach is not recommended.
+  [[inquid\yii-cd-ci\SelfUpdateController]] inside `controllerMap` specification, but such approach is not recommended.
 
 
 Self Update Workflow
 --------------------
 
-While running, [[yii2tech\selfupdate\SelfUpdateController]] performs following steps:
+While running, [[inquid\yii-cd-ci\SelfUpdateController]] performs following steps:
 
  - check if there are any changes at VSC remote repository
  - link web server web directories to the stubs, while project update is running
