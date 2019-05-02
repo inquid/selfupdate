@@ -145,10 +145,7 @@ class SelfUpdateController extends Controller
     public $versionControlSystems = [
         '.git' => [
             'class' => 'yii2tech\selfupdate\Git'
-        ],
-        '.hg' => [
-            'class' => 'yii2tech\selfupdate\Mercurial'
-        ],
+        ]
     ];
     /**
      * @var array composer command options.
