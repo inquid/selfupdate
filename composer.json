@@ -1,7 +1,7 @@
 {
-    "name": "yii2tech/selfupdate",
-    "description": "Basic extension for the Yii2 project self-update from VCS",
-    "keywords": ["yii2", "selfupdate", "update", "deployment", "continuous", "integration", "VCS", "GIT"],
+    "name": "inquid/yii-cd-ci",
+    "description": "Tools for Yii to use Continuous Delivery and Continuous Integration",
+    "keywords": ["yii2", "selfupdate", "update", "deployment", "continuous", "integration", "VCS", "GIT","Inquid"],
     "type": "yii2-extension",
     "license": "BSD-3-Clause",
     "support": {
@@ -11,6 +11,10 @@
         "source": "https://github.com/yii2tech/selfupdate"
     },
     "authors": [
+        {
+            "name": "Inquid SAS de CV",
+            "email": "contact@inquid.co"
+        },
         {
             "name": "Paul Klimov",
             "email": "klimov.paul@gmail.com"
@@ -26,7 +30,7 @@
         }
     ],
     "autoload": {
-        "psr-4": {"yii2tech\\selfupdate\\": "src"}
+        "psr-4": {"inquid\\yii-cd-ci\\": "src"}
     },
     "extra": {
         "branch-alias": {
