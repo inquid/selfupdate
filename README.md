@@ -7,7 +7,7 @@
 </p>
 
 This extension allows automatic project updating in case its source code is maintained via version control system, such
-as [GIT](https://git-scm.com/) or [Mercurial](https://mercurial.selenic.com/). Such update includes following steps:
+as [GIT](https://git-scm.com/). Such update includes following steps:
  - check if there are any changes at VSC remote repository
  - link web server web directories to the stubs, while project update is running
  - apply remote VCS changes
